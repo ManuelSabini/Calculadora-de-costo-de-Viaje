@@ -5,6 +5,32 @@ alert("Bienvenido, el siguiente es un simulador de gastos de viaje.\n\nSe le rea
 https://www.coches.net/consejos/que-gasta-mas-coche-o-moto
 https://surtidores.com.ar/el-precio-del-gnc-aumentara-en-las-estaciones-de-servicio-a-partir-de-noviembre/
 */ 
+class Viaje{
+    constructor(){
+        this.origen = undefined;
+        this.destino = undefined;
+        this.distancia = undefined;
+    }
+    nuevoOrigen(){
+        do {
+            this.origen = prompt("Indique la ciudad de Origen").toUpperCase();
+        } while (this.origen == "");        
+    }
+    nuevoDestino(){
+        do {
+            this.destino = prompt("Indique la ciudad de Destino").toUpperCase();
+        } while (this.destino == "");
+    }
+    nuevaDistancia(){
+        do {
+            this.distancia = parseInt(prompt("Indique la distancia entre Origen y destino (KM)"));
+        } while (isNaN(this.distancia));
+    }
+    descripcionViaje(){
+        alert("Su viaje sera entre las ciudades de " + this.origen + " y " + this.destino + ".Distancia aproximada de "+ this.distancia + " Km");
+    }
+}
+
 class Vehiculo{
     constructor(){
         this.consumovehiculo = 0;
@@ -59,67 +85,26 @@ class Calculos{
     }
 }
 
-//Velocidad promedio (Km/h)
-//Remplazar por un objeto
-
-// Ingreso de Origen, destino y distancia
-function seleccionOrigen(){
-    return prompt("Indique la ciudad de Origen").toUpperCase();
-}
-
-function seleccionDestino(){
-    return prompt("Indique la ciudad de Destino").toUpperCase();
-}
-
-function seleccionDistancia(){
-    return parseInt(prompt("Indique la distancia entre Origen y destino (KM)"));
-}
-
-//Prompt seleccion de vehiculo
-function seleccionVehiculo() {
-        let vehiculo = parseInt(prompt("Seleccione el vehiculo: \n\n1- Moto \n\n2- Auto"));
-        return vehiculo;
-}
-
-//Prompt seleccion de Combustible
-function seleccionCombustible() {
-        let vehiculo = parseInt(prompt("Seleccione el tipo de combustible: \n\n1- Nafta \n\n2- Gasoil \n\n3- GNC"));
-        return vehiculo;
-}
-
 //Consultar Destino, Origen, Distancia
-let origen;
-let destino;
-let distancia;
 
-do {
-    origen = seleccionOrigen();
-} while (origen == "");
-
-do {
-    destino = seleccionDestino();
-} while (destino == "");
-
-do {
-    distancia = seleccionDistancia();
-} while (isNaN(distancia));
-
-alert("Su viaje sera entre las ciudades de " + origen + " y " + destino + ".Distancia aproximada de "+ distancia + " Km");
+let viaje = new Viaje;
+viaje.nuevoOrigen();
+viaje.nuevoDestino();
+viaje.nuevaDistancia();
+viaje.descripcionViaje();
 
 //Consulta Vehiculo
 let tipoVehiculo;
 let vehiculo = new Vehiculo;
 let estimacion = new Calculos;
+
 //Consulta Combustible
 let tipoCombustible;
-/* let precioCombustibleUtilizado;
-let consumoVehiculo;
- */
 let errores = false;
 
 do {
     errores = false;
-    tipoVehiculo= seleccionVehiculo();
+    tipoVehiculo= parseInt(prompt("Seleccione el vehiculo: \n\n1- Moto \n\n2- Auto"));
     if (tipoVehiculo == 1){  //Si el tipo de vehiculo es MOTO por default se supone que la moto usa Nafta y que tiene un consumo propio de Moto naftera y una velocidad establecida
         vehiculo.consumoStd(tipoVehiculo);
         tipoCombustible = 1;
@@ -130,7 +115,7 @@ do {
     }else if (tipoVehiculo == 2){ //Si el vehiculo es Auto, el mismo puede ser Naftero, Gasolero o a GNC. Por ahora la velocidad esta fijada.
         do {
             errores = false;
-            tipoCombustible = seleccionCombustible();
+            tipoCombustible = parseInt(prompt("Seleccione el tipo de combustible: \n\n1- Nafta \n\n2- Gasoil \n\n3- GNC"));
             //Seleccion del tipo de combustible utilizado y defincion del consumo
             if (tipoCombustible == 1) {
                 vehiculo.consumoStd(2);
@@ -153,11 +138,11 @@ do {
 } while (errores);
 
 //Hace calculo de las estimaciones de costo, consumo y tiempo estimado de viaje
-estimacion.combustibleNecesario(distancia, vehiculo.consumovehiculo);
+estimacion.combustibleNecesario(viaje.distancia, vehiculo.consumovehiculo);
 
 estimacion.calculadoraGasto(estimacion.totalCombustible, vehiculo.preciocombustible);
 
-estimacion.tiempo(vehiculo.velocidadprom,distancia);
+estimacion.tiempo(vehiculo.velocidadprom,viaje.distancia);
 
 //Muestra resultado
-alert("Su viaje entre las ciudades de " + origen + " y " + destino + ". \n\nDistancia: "+ distancia + " Km.\n\nConsumo de combustible: "+ estimacion.totalCombustible +" Litros (o M3)\n\n Costo: " + estimacion.totalGasto +" Pesos Arg.\n\nPrecio del Litro de combustible (o M3): "+ vehiculo.preciocombustible +"$/L\n\nTiempo estimado: " + estimacion.totalTiempoDelViaje + " Horas\n\n")
+alert("Su viaje entre las ciudades de " + viaje.origen + " y " + viaje.destino + ". \n\nDistancia: "+ viaje.distancia + " Km.\n\nConsumo de combustible: "+ estimacion.totalCombustible +" Litros (o M3)\n\n Costo: " + estimacion.totalGasto +" Pesos Arg.\n\nPrecio del Litro de combustible (o M3): "+ vehiculo.preciocombustible +"$/L\n\nTiempo estimado: " + estimacion.totalTiempoDelViaje + " Horas\n\n");
