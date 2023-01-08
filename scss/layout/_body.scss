@@ -1,0 +1,19 @@
+body{
+    height: 100vh;
+    background-image: linear-gradient(to right, #d0dae0, #dce1e7, #e7e9ee, #f1f1f4, #fafafa);
+}
+main{
+    padding-left: 5%;
+    padding-right: 10%;
+}
+.container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: $backgraundcolor3;
+    padding: 5px;
+    border-radius: 5px;
+    border: $bordercolor solid 1px;
+    label{
+        color: $fontcolor2;
+    }
+}

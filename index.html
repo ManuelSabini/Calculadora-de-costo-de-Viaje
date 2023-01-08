@@ -4,39 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilos.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <title>Simulador Interactivo</title>
+    <title>Calculadora de costo de Viaje</title>
 </head>
 <body>
-    <header class="caja">
-        <h1>Simulador Interactivo - Calculadora de costo de Viaje</h1>
+    <header>
+        <h1>Calculadora de costo de Viaje</h1>
     </header>
-    <div class="caja">
-        <h2>Instrucciones</h2>
-        <ol>
-            <li>Seleccione las ciudades de destino y fin</li>
-            <li>Indique la distancia entre dichas ciudades</li>
-            <li>Seleccione el tipo de Vehiculo</li>
-            <li>Seleccione el tipo de Motor</li>
-            <li>Obtendra el costo que le conllevara realizar la travesía</li>
-        </ol>
-    </div>
-    <div class="caja">
-        <ul>
-            <li>Para revisar el contenido del entregable, haga click derecho en cualquier lugar del  sitio.</li>
-            <li>Abra el inspector</li>
-            <li>Revise la consola</li>
-        </ul>
-    </div>
-    <footer class="caja">
+    <main>
+        <div class="container" id="cajaTravesia">
+            <h2>Indique cual sera su travesía</h2>
+            <form id="form1">
+                <label for="desde">Desde</label>
+                <input class="form-control" id="desde" type="text" aria-label=".form-control-lg example"><br>
+                <label for="hasta">Hasta</label>
+                <input class="form-control" id="hasta" type="text" aria-label=".form-control-lg example"><br>
+                <label for="distancia">Distancia</label>
+                <input class="form-control" id="distancia" type="number" aria-label=".form-control-lg example"><br>
+                <div class="botones">
+                    <button type="submit" class="btn btn-primary" type="button">Siguiente</button>
+                </div>
+            </form>
+        </div>
+<!--         <div class="container" id="cajaVehiculo">
+            <h2>Seleccione el vehiculo</h2>
+            <form id="form2">
+                <input type="radio" class="form-check-label" id="moto" name="tipoVehiculo" value="Moto">
+                <label class="form-check-label" for="moto">Moto</label><br>
+                <input type="radio" class="form-check-label" id="auto" name="tipoVehiculo" value="Auto">
+                <label for="auto" class="form-check-label">Auto</label><br>
+                <div class="botones"> 
+                    <button type="submit" class="btn btn-primary">Siguiente</button>
+                    <button type="button" class="btn btn-danger">Limpiar</button>
+                </div>
+            </form>
+        </div>
+        <div class="container" id="cajaCombustible">
+            <h2>Seleccione el tipo de combustible</h2>
+            <form id="form3">
+                <input type="radio" class="form-check-label" id="nafta" name="tipoCombustible" value="Nafta">
+                <label for="nafta" class="form-check-label">Nafta</label><br>
+                <input type="radio" class="form-check-label" id="gasoil" name="tipoCombustible" value="Gasoil">
+                <label for="nafta" class="form-check-label">Gasoil</label><br>
+                <input type="radio" class="form-check-label" id="gnc" name="tipoCombustible" value="GNC">
+                <label for="gnc" class="form-check-label">GNC</label><br>
+                <div class="botones">
+                    <button type="submit" class="btn btn-primary">Siguiente</button>
+                    <button type="button" class="btn btn-danger">Limpiar</button>
+                </div>
+            </form>
+        </div>
+        <div class="container" id="cajaRespuesta">
+            <p>Respuesta ....</p>
+            <p>Boton compartir</p>
+            <p>Recomendar</p>
+            <button type="button" class="btn btn-danger">Limpiar</button>
+        </div> -->
+    </main>
+    <footer>
         <p>Desarrollado por Manuel Sabini - Curso de Javascript - #34105</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="./js/site.js"></script>
 </body>
 </html>

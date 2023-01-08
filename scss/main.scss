@@ -1,0 +1,10 @@
+
+//Importar de carpeta utilidades principales configuraciones
+@import './utilidades/_base.scss';
+@import './utilidades/_fonts.scss';
+@import './utilidades/_colors.scss';
+
+//Importar partes del layout
+@import './layout/_body.scss';
+@import './layout/_header.scss';
+@import './layout/_footer.scss';
