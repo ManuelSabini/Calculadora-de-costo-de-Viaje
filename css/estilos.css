@@ -57,7 +57,7 @@ footer i {
   text-align: center;
 }
 footer i:hover {
-  color: fontcolor1;
+  color: white;
   transform: translateY(-5px);
   transition: 0.75s;
 }

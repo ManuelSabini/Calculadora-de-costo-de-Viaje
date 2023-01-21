@@ -18,7 +18,7 @@ footer{
         color: $backgraundcolor2;
         text-align: center;
         &:hover{
-            color: fontcolor1;
+            color: $fontcolor1;
             transform: translateY(-5px);
             transition: 0.75s;
         }
