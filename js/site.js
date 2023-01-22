@@ -213,3 +213,25 @@ let estimacion = new Calculos;
 let siguiente;
 
 listenerCajaTravesia();
+
+
+function listenerRecomendacion(){
+    camposOrigenDestino = document.querySelector(".form-control")
+    camposOrigenDestino.addEventListener("keydown", ()=>{
+        texto = document.getElementById("desde").value;
+        texto.length > 3 ? apiLocalidades(texto) : console.log("Inserte mas caracteres, para una mejor busqueda");
+    })
+}
+
+listenerRecomendacion();
+
+function recomendacionesBusqueda(respuesta) { 
+    opcionesviejas = document.querySelector("option");
+//    opcionesviejas.remove()
+    respuesta.localidades.forEach(element => {
+        opciones = document.createElement("option")
+        console.log(`<option value="${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})">`);
+        opciones.setAttribute("value", `${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})`);
+        document.querySelector("datalist").appendChild(opciones);
+    })
+}

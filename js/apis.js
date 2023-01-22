@@ -3,24 +3,34 @@
 //API DE ARGENTINA
 //https://apis.datos.gob.ar/georef/api/localidades?nombre=25
 let respuesta
+let opciones;
+let opcionesLista;
+let opcionesviejas;
+let recomendaciones;
+let element;
 
 //Busca posibles resultados
-function apiLocalidades(busqueda){
-    fetch("https://apis.datos.gob.ar/georef/api/localidades?nombre="+busqueda+"&campos=nombre,id,provincia.nombre")
-    .then( response => response.json())
-    .then( data => respuesta = data)
-    .then( ()=>{
-        console.log(respuesta)
+async function apiLocalidades(busqueda){
+    await fetch("https://apis.datos.gob.ar/georef/api/localidades?nombre="+busqueda+"&campos=nombre,id,provincia.nombre")
+        .then( response => response.json())
+        .then( data => recomendacionesBusqueda(data))
+        .catch( () =>{
+            respuesta = "La API no funciona, listado de ciudades no disponible";
+            console.log(respuesta);
         })
-    .catch(() =>{
-        respuesta = "La API no funciona, listado de ciudades no disponible";
-        console.log(respuesta);
-        })
-    .finally(()=>{
-        respuesta.localidades.forEach(element => {
-            console.log(`${element.nombre}, Provincia de ${element.provincia.nombre} (${element.id})` )
-    })})
 }
+
+/* function recomendacionesBusqueda(respuesta) { 
+    opcionesviejas = document.querySelector("datalist");
+    opcionesviejas != null ? opcionesviejas.remove() : console.log("nada que borrar");
+    opciones= document.createElement("datalist");
+    opciones.id = "listado";
+    opciones.className = "datalistOptions";
+    respuesta.localidad.forEach(element => {
+        console.log(`<option>${element.nombre}, Provincia de ${element.provincia.nombre} (${element.id})</option>`);
+        opciones.innerHTML =   `<option>${element.nombre}, Provincia de ${element.provincia.nombre} (${element.id})</option>`;
+        document.querySelector("#form1").appendChild(opciones);
+    }) */
 
 //Busca las coordenadas del lugar elegido
 function apiInfoLocalidad(id,localizacion){

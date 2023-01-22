@@ -19,9 +19,11 @@
     <main>
         <div class="container" id="cajaTravesia">
             <h2>Indique cual sera su travesía</h2>
-            <form id="form1">
+            <form id="form1" autocomplete="off">
                 <label for="desde">Desde</label>
-                <input class="form-control" id="desde" type="text" aria-label=".form-control-lg example"><br>
+                <input class="form-control" id="desde" type="text" list="mostrarResultados" aria-label=".form-control-lg example" placeholder="Escriba para buscar...">
+                <datalist class="datalistOptions" id="mostrarResultados"></datalist>
+                <br>
                 <label for="hasta">Hasta</label>
                 <input class="form-control" id="hasta" type="text" aria-label=".form-control-lg example"><br>
                 <label for="distancia">Distancia</label>
