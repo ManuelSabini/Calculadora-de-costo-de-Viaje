@@ -27,8 +27,7 @@ class Viaje{
         JSON.parse(localStorage.getItem("origen_pos"))[0].centroide.lon,
         JSON.parse(localStorage.getItem("destino_pos"))[0].centroide.lat,
         JSON.parse(localStorage.getItem("destino_pos"))[0].centroide.lon
-        )
-        /*         this.distancia = parseInt(document.getElementById("distancia").value); */
+        );
     }
 }
 

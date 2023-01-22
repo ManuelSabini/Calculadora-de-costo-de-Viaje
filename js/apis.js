@@ -39,12 +39,12 @@ async function apiInfoLocalidad(id,localizacion){
         .then( data => respuesta = data)
         .then( ()=>{
             console.log(respuesta);
-            localStorage.setItem(localizacion,JSON.stringify(respuesta.localidades))}
+            if (respuesta.total != 1) {
+                alertaError("Localidades Desconocidas","Selecciones una de las localidades que se le sugieren en la lista de opciones" )
+            } else {
+                localStorage.setItem(localizacion,JSON.stringify(respuesta.localidades))}
+            }
             )
-/*         .then(()=>{
-            respuesta.localidades.forEach(element => {
-                console.log(`${element.nombre}, Provincia de ${element.provincia.nombre} (${element.id})` )
-            })}) */
         .catch(() =>{
             respuesta = "La API no funciona, listado de ciudades no disponible";
             console.log(respuesta);
@@ -75,5 +75,5 @@ function distanciaHaversine(lat1,lon1,lat2,lon2){
             Math.sin(Δλ/2) * Math.sin(Δλ/2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
-    return R * c / 1000; // in Kilometros
+    return (R * c / 1000).toFixed(2); // in Kilometros
 }
