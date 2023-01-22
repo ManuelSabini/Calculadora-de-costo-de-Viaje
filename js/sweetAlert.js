@@ -1,5 +1,5 @@
-function alertaError(tipo,mensaje) {
-    Swal.fire({
+async function alertaError(tipo,mensaje) {
+    await Swal.fire({
         icon: 'error',
         title: tipo,
         text: mensaje,

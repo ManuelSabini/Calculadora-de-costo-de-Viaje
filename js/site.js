@@ -62,7 +62,13 @@ class Vehiculo{
     }
         
     consumoStd(tipoVehiculo){
-        this.consumovehiculo = this.consumoxvehiculo.find((el) => el.vehiculo == tipoVehiculo)["consumo"];
+        let list =[]
+        vehiculo.consumoxvehiculo.forEach((n)=>list.push(n.vehiculo));
+        if (list.includes(tipoVehiculo)) {
+            this.consumovehiculo = this.consumoxvehiculo.find((el) => el.vehiculo == tipoVehiculo)["consumo"];
+        } else {
+            alertaError("Vehiculo o Combustible incorrecto","Las motos no funcionan con ese tipo de combustible")
+        }
     }
     precioStd(tipoCombustible){
         this.preciocombustible = this.precioxcombustible.find((el) => el.combustible == tipoCombustible)["precio"];
@@ -145,7 +151,7 @@ function InsertarCajaRespuesta() {
     let caja = document.createElement("div");
     caja.className = "container";
     caja.id = "cajaRespuesta";
-    caja.innerHTML =   `<p>Su viaje entre las ciudades de ${viaje.origen} y ${viaje.destino}.</p>
+    caja.innerHTML =   `<p>Su viaje entre las ciudades de ${viaje.origen.slice(0,-14)} y ${viaje.destino.slice(0,-14)}.</p>
                         <p>Distancia:  ${viaje.distancia} Km.</p>
                         <p>Consumo de combustible: ${estimacion.totalCombustible} Litros (o M3)</p>
                         <p>Costo: ${estimacion.totalGasto} Pesos Arg.</p>
