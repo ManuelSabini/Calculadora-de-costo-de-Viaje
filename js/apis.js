@@ -10,10 +10,10 @@ let recomendaciones;
 let element;
 
 //Busca posibles resultados
-async function apiLocalidades(busqueda){
+async function apiLocalidades(busqueda,campo){
     await fetch("https://apis.datos.gob.ar/georef/api/localidades?nombre="+busqueda+"&campos=nombre,id,provincia.nombre")
         .then( response => response.json())
-        .then( data => recomendacionesBusqueda(data))
+        .then( data => recomendacionesBusqueda(data,campo))
         .catch( () =>{
             respuesta = "La API no funciona, listado de ciudades no disponible";
             console.log(respuesta);

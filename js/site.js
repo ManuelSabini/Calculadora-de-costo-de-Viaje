@@ -215,23 +215,24 @@ let siguiente;
 listenerCajaTravesia();
 
 
-function listenerRecomendacion(){
-    camposOrigenDestino = document.querySelector(".form-control")
+function listenerRecomendacion(campo){
+    camposOrigenDestino = document.querySelector("#"+campo)
     camposOrigenDestino.addEventListener("keydown", ()=>{
-        texto = document.getElementById("desde").value;
-        texto.length > 3 ? apiLocalidades(texto) : console.log("Inserte mas caracteres, para una mejor busqueda");
+        texto = document.getElementById(campo).value;
+        texto.length > 3 ? apiLocalidades(texto,campo) : console.log("Inserte mas caracteres, para una mejor busqueda");
     })
 }
 
-listenerRecomendacion();
+listenerRecomendacion("desde");
+listenerRecomendacion("hasta");
 
-function recomendacionesBusqueda(respuesta) { 
-    opcionesviejas = document.querySelector("option");
+function recomendacionesBusqueda(respuesta,campo) { 
+//    opcionesviejas = document.querySelector("option");
 //    opcionesviejas.remove()
     respuesta.localidades.forEach(element => {
         opciones = document.createElement("option")
         console.log(`<option value="${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})">`);
         opciones.setAttribute("value", `${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})`);
-        document.querySelector("datalist").appendChild(opciones);
+        document.querySelector("#mostrarResultados"+campo).appendChild(opciones);
     })
 }
