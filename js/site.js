@@ -20,8 +20,15 @@ class Viaje{
     nuevoDestino(){
         this.destino = document.getElementById("hasta").value.toUpperCase();   
     }
-    nuevaDistancia(){
-        this.distancia = parseInt(document.getElementById("distancia").value);
+    async nuevaDistancia(){
+        await apiInfoLocalidad(this.origen.slice(-12,-1),"origen_pos")
+        await apiInfoLocalidad(this.destino.slice(-12,-1),"destino_pos")
+        this.distancia = distanciaHaversine(JSON.parse(localStorage.getItem("origen_pos"))[0].centroide.lat,
+        JSON.parse(localStorage.getItem("origen_pos"))[0].centroide.lon,
+        JSON.parse(localStorage.getItem("destino_pos"))[0].centroide.lat,
+        JSON.parse(localStorage.getItem("destino_pos"))[0].centroide.lon
+        )
+        /*         this.distancia = parseInt(document.getElementById("distancia").value); */
     }
 }
 

@@ -33,18 +33,18 @@ async function apiLocalidades(busqueda,campo){
     }) */
 
 //Busca las coordenadas del lugar elegido
-function apiInfoLocalidad(id,localizacion){
-    fetch("https://apis.datos.gob.ar/georef/api/localidades?id="+id+"&campos=nombre,id,provincia.nombre,centroide")
+async function apiInfoLocalidad(id,localizacion){
+    await fetch("https://apis.datos.gob.ar/georef/api/localidades?id="+id+"&campos=nombre,id,provincia.nombre,centroide")
         .then( response => response.json())
         .then( data => respuesta = data)
         .then( ()=>{
             console.log(respuesta);
             localStorage.setItem(localizacion,JSON.stringify(respuesta.localidades))}
             )
-        .then(()=>{
+/*         .then(()=>{
             respuesta.localidades.forEach(element => {
                 console.log(`${element.nombre}, Provincia de ${element.provincia.nombre} (${element.id})` )
-            })})
+            })}) */
         .catch(() =>{
             respuesta = "La API no funciona, listado de ciudades no disponible";
             console.log(respuesta);
@@ -63,7 +63,7 @@ function apiInfoLocalidad(id,localizacion){
 //destino[0].centroide.lat
 //destino[0].centroide.lon
 
-function distancia(lat1,lon1,lat2,lon2){
+function distanciaHaversine(lat1,lon1,lat2,lon2){
     const R = 6371e3; // metres
     const φ1 = lat1 * Math.PI/180; // φ, λ in radians
     const φ2 = lat2 * Math.PI/180;
