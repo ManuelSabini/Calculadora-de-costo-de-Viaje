@@ -151,14 +151,13 @@ function InsertarCajaRespuesta() {
     let caja = document.createElement("div");
     caja.className = "container";
     caja.id = "cajaRespuesta";
-    caja.innerHTML =   `<p>Su viaje entre las ciudades de ${viaje.origen.slice(0,-14)} y ${viaje.destino.slice(0,-14)}.</p>
+    caja.innerHTML =   `<h2>Resultados</h2>
+                        <p>Su viaje entre las ciudades de ${viaje.origen.slice(0,-14)} y ${viaje.destino.slice(0,-14)}.</p>
                         <p>Distancia:  ${viaje.distancia} Km.</p>
                         <p>Consumo de combustible: ${estimacion.totalCombustible} Litros (o M3)</p>
                         <p>Costo: ${estimacion.totalGasto} Pesos Arg.</p>
                         <p>Precio del Litro de combustible (o M3): ${vehiculo.preciocombustible} $/L.</p>
                         <p>Tiempo estimado: ${estimacion.totalTiempoDelViaje} Horas</p>
-                        <p>Proximamente boton compartir</p>
-                        <p>Proximamente boton recomendar a un amigo</p>
                         <button type="button" class="btn btn-danger" id="limpiar" type="reset">Limpiar</button>`
     document.querySelector("main").appendChild(caja);
 }

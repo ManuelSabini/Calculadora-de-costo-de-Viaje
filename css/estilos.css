@@ -6,6 +6,7 @@
 
 body {
   height: 100vh;
+  font-family: "Signika Negative", sans-serif;
   background-image: linear-gradient(to right, #d0dae0, #dce1e7, #e7e9ee, #f1f1f4, #fafafa);
 }
 
@@ -17,10 +18,10 @@ main {
 .container {
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #f8755e;
+  background-color: #cacaca;
   padding: 5px;
   border-radius: 5px;
-  border: black solid 1px;
+  box-shadow: 5px 5px 5px 5px rgb(224, 220, 220);
 }
 .container label {
   color: black;
@@ -28,21 +29,46 @@ main {
 
 header {
   width: 100%;
-  height: 50px;
-  background-color: #388183;
+  height: fit-content;
+  min-height: 100px;
+  background-color: #0F4C75;
   color: white;
   text-align: center;
   font-family: "gilroy";
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Kanit", sans-serif;
+  justify-content: center;
+}
+header h1 {
+  width: fit-content;
+  height: fit-content;
+  margin: 0px;
+  padding-left: 10px;
+}
+header .logo {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  /*         margin-top: 20px;
+          margin-left: 20px; */
+  background-color: whitesmoke;
+}
+header .logo img {
+  align-items: center;
 }
 
 footer {
-  background-color: #388183;
+  background-color: #3282B8;
   text-align: center;
   padding-top: 25px;
   margin-top: 10px;
 }
 footer a {
   padding: 8px;
+  color: white;
+  text-decoration: none;
 }
 footer p {
   padding-top: 8px;
