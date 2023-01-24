@@ -99,13 +99,16 @@ class Calculos{
 }
 
 //MODIFICACIONES DEL HTML
-function InsertarCajaVehiculo() { 
+//Caja de consulta Vehiculo
+function InsertarCajaVehiculo() {
+    //Borra los botones y bloque los inputs de la caja anterior 
     let botones = document.querySelector(".botones");
     botones.remove();
     let inputDesde = document.querySelector("#desde");
     inputDesde.setAttribute("disabled","")
     let inputHasta = document.querySelector("#hasta");
     inputHasta.setAttribute("disabled","")
+    //Inserta nueva caja
     let caja = document.createElement("div");
         caja.className = "container";
         caja.id = "cajaVehiculo";
@@ -122,7 +125,9 @@ function InsertarCajaVehiculo() {
     document.querySelector("main").appendChild(caja);
 }
 
+//Inserta caja de consulta tipo de Vehiculo que utiliza
 function InsertarCajaCombustible() { 
+    //Borra el boton de Siguiente de la caja anterior y desabilita los radios de la caja anterior para evitar cambios posteriores
     let botones = document.querySelector(".botones");
     botones.remove();
     let inputMoto = document.querySelector("#moto");
@@ -130,6 +135,7 @@ function InsertarCajaCombustible() {
     let inputHasta = document.querySelector("#auto");
     inputHasta.setAttribute("disabled","")
     let caja = document.createElement("div");
+    //Crea e inserta caja de vehiculo
     caja.className = "container";
     caja.id = "cajaVehiculo";
     caja.innerHTML =   `<h2>Seleccione el tipo de combustible</h2>
@@ -147,21 +153,26 @@ function InsertarCajaCombustible() {
     document.querySelector("main").appendChild(caja);
 }
 
+
+//Caja de respuestas
 function InsertarCajaRespuesta() {
+    //Elimina el boton de siguiente de la caja anterior, bloquea las respuestas del usuario en la caja anterior
+    let botones = document.querySelector(".botones");
+    botones.remove();
     let inputNafta = document.querySelector("#nafta");
     inputNafta.setAttribute("disabled","")
     let inputGasoil = document.querySelector("#gasoil");
     inputGasoil.setAttribute("disabled","")
     let inputAuto = document.querySelector("#gnc");
     inputAuto.setAttribute("disabled","")
+    //Calcula los resultados
     vehiculo.precioStd(vehiculo.tipoMotor);
     vehiculo.velocidadProm(vehiculo.tipoTransporte);
     vehiculo.consumoStd(vehiculo.tipoTransporte+vehiculo.tipoMotor);
     estimacion.combustibleNecesario(viaje.distancia, vehiculo.consumovehiculo);
     estimacion.calculadoraGasto(estimacion.totalCombustible, vehiculo.preciocombustible);
     estimacion.tiempo(vehiculo.velocidadprom, viaje.distancia);
-    let botones = document.querySelector(".botones");
-    botones.remove();
+    //Inserta respuestas
     let caja = document.createElement("div");
     caja.className = "container";
     caja.id = "cajaRespuesta";
@@ -239,21 +250,27 @@ let siguiente;
 
 listenerCajaTravesia();
 
-
+//Lo que hace esta funcion es llamar a la funcion que consulta a la API de localidades del pais. lo hace solo cuando el usuario completo al menos 3 letras
 function listenerRecomendacion(campo){
     camposOrigenDestino = document.querySelector("#"+campo)
     camposOrigenDestino.addEventListener("keydown", ()=>{
         texto = document.getElementById(campo).value;
-        texto.length > 3 ? apiLocalidades(texto,campo) : console.log("Inserte mas caracteres, para una mejor busqueda");
+        texto.length > 2 ? apiLocalidades(texto,campo) : console.log("Inserte mas caracteres, para una mejor busqueda");
     })
 }
 
+//Añade el listado de recomendaciones (option en el HTML)
 listenerRecomendacion("desde");
 listenerRecomendacion("hasta");
 
+let cant
 function recomendacionesBusqueda(respuesta,campo) { 
-//    opcionesviejas = document.querySelector("option");
-//    opcionesviejas.remove()
+    //Remover Opciones viejas
+    cant = document.querySelectorAll("option").length
+    for (let index = 0; index < cant; index++) {
+        document.querySelector("option").remove();
+    }
+    //Añadir opciones nuevas post respuesta de API
     respuesta.localidades.forEach(element => {
         opciones = document.createElement("option")
         console.log(`<option value="${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})">`);
