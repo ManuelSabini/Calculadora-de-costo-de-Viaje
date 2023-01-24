@@ -102,6 +102,10 @@ class Calculos{
 function InsertarCajaVehiculo() { 
     let botones = document.querySelector(".botones");
     botones.remove();
+    let inputDesde = document.querySelector("#desde");
+    inputDesde.setAttribute("disabled","")
+    let inputHasta = document.querySelector("#hasta");
+    inputHasta.setAttribute("disabled","")
     let caja = document.createElement("div");
         caja.className = "container";
         caja.id = "cajaVehiculo";
@@ -121,6 +125,10 @@ function InsertarCajaVehiculo() {
 function InsertarCajaCombustible() { 
     let botones = document.querySelector(".botones");
     botones.remove();
+    let inputMoto = document.querySelector("#moto");
+    inputMoto.setAttribute("disabled","")
+    let inputHasta = document.querySelector("#auto");
+    inputHasta.setAttribute("disabled","")
     let caja = document.createElement("div");
     caja.className = "container";
     caja.id = "cajaVehiculo";
@@ -139,7 +147,13 @@ function InsertarCajaCombustible() {
     document.querySelector("main").appendChild(caja);
 }
 
-function InsertarCajaRespuesta() { 
+function InsertarCajaRespuesta() {
+    let inputNafta = document.querySelector("#nafta");
+    inputNafta.setAttribute("disabled","")
+    let inputGasoil = document.querySelector("#gasoil");
+    inputGasoil.setAttribute("disabled","")
+    let inputAuto = document.querySelector("#gnc");
+    inputAuto.setAttribute("disabled","")
     vehiculo.precioStd(vehiculo.tipoMotor);
     vehiculo.velocidadProm(vehiculo.tipoTransporte);
     vehiculo.consumoStd(vehiculo.tipoTransporte+vehiculo.tipoMotor);
