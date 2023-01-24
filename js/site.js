@@ -86,10 +86,10 @@ class Calculos{
     }
     combustibleNecesario(distancia, consumoStd) {
         console.log("Combustible Necesario: "+(distancia * consumoStd /100).toFixed(2));
-        this.totalCombustible = (distancia * consumoStd /100);
+        this.totalCombustible = (distancia * consumoStd /100).toFixed(2);
     }
     calculadoraGasto(combustibleNecesario, precioCombustible){ 
-        console.log("Gasto en combustible "+ (combustibleNecesario * precioCombustible).toFixed(2));
+        console.log("Gasto en combustible "+ (combustibleNecesario * precioCombustible));
         this.totalGasto = parseInt(combustibleNecesario * precioCombustible);
     }
     tiempo(velocidadProm, distancia){ 
@@ -177,12 +177,28 @@ function InsertarCajaRespuesta() {
     caja.className = "container";
     caja.id = "cajaRespuesta";
     caja.innerHTML =   `<h2>Resultados</h2>
-                        <p>Su viaje entre las ciudades de ${viaje.origen.slice(0,-14)} y ${viaje.destino.slice(0,-14)}.</p>
-                        <p>Distancia:  ${viaje.distancia} Km.</p>
-                        <p>Consumo de combustible: ${estimacion.totalCombustible} Litros (o M3)</p>
-                        <p>Costo: ${estimacion.totalGasto} Pesos Arg.</p>
-                        <p>Precio del Litro de combustible (o M3): ${vehiculo.preciocombustible} $/L.</p>
-                        <p>Tiempo estimado: ${estimacion.totalTiempoDelViaje} Horas</p>
+                        <p>Su viaje entre:</p> 
+                        <p>${viaje.origen.slice(0,-14)}</p> 
+                        <p>${viaje.destino.slice(0,-14)}</p>
+                        <table class="table table-hover table-bordered table-sm">
+                            <tbody>
+                                <tr>
+                                    <th>Distancia</th>
+                                    <th>Consumo de combustible</th>
+                                    <th>Costo</th>
+                                    <th>Precio del Litro de combustible (o M3)</th>
+                                    <th>Tiempo estimado</th>
+                                </tr>
+                                <tr>
+                                    <td>${viaje.distancia} Km.</td>
+                                    <td>${estimacion.totalCombustible} Litros (o M3)</td>
+                                    <td>${estimacion.totalGasto} Pesos Arg.</td>
+                                    <td>${vehiculo.preciocombustible} $/L.</td>
+                                    <td>${estimacion.totalTiempoDelViaje} Horas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>*Informacion calculada en base a distancia lineal</p>
                         <button type="button" class="btn btn-danger" id="limpiar" type="reset">Limpiar</button>`
     document.querySelector("main").appendChild(caja);
 }

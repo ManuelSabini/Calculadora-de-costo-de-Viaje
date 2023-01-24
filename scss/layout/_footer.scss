@@ -3,6 +3,7 @@ footer{
     text-align: center;
     padding-top: 25px;
     margin-top: 10px;
+    width: 100%;
     a{
         padding: 8px;
         color: $fontcolor1;
@@ -10,19 +11,8 @@ footer{
     }
     p{
         padding-top: 8px;
-        margin-bottom: 0px;
+        margin-bottom: 8px;
         color: $fontcolor1;
     }
-    i{
-        display: inline-block;
-        font-size: xx-large;
-        height: auto;
-        color: $backgraundcolor2;
-        text-align: center;
-        &:hover{
-            color: $fontcolor1;
-            transform: translateY(-5px);
-            transition: 0.75s;
-        }
-    }
 }
+

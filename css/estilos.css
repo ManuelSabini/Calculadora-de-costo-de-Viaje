@@ -26,6 +26,9 @@ main {
 .container label {
   color: black;
 }
+.container table {
+  font-size: small;
+}
 
 header {
   width: 100%;
@@ -64,6 +67,7 @@ footer {
   text-align: center;
   padding-top: 25px;
   margin-top: 10px;
+  width: 100%;
 }
 footer a {
   padding: 8px;
@@ -72,20 +76,8 @@ footer a {
 }
 footer p {
   padding-top: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   color: white;
-}
-footer i {
-  display: inline-block;
-  font-size: xx-large;
-  height: auto;
-  color: #388183;
-  text-align: center;
-}
-footer i:hover {
-  color: white;
-  transform: translateY(-5px);
-  transition: 0.75s;
 }
 
 /*# sourceMappingURL=estilos.css.map */
