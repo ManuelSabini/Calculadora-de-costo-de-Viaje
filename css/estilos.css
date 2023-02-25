@@ -26,7 +26,7 @@ main {
 .container label {
   color: black;
 }
-.container table {
+.container table, .container p {
   font-size: small;
 }
 
@@ -36,13 +36,13 @@ header {
   min-height: 100px;
   background-color: #0F4C75;
   color: white;
-  text-align: center;
   font-family: "gilroy";
   display: flex;
   flex-direction: row;
   align-items: center;
   font-family: "Kanit", sans-serif;
   justify-content: center;
+  text-align: center;
 }
 header h1 {
   width: fit-content;
@@ -53,9 +53,8 @@ header h1 {
 header .logo {
   height: 75px;
   width: 75px;
+  min-width: 75px;
   border-radius: 50%;
-  /*         margin-top: 20px;
-          margin-left: 20px; */
   background-color: whitesmoke;
 }
 header .logo img {

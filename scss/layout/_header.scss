@@ -4,13 +4,13 @@ header{
     min-height: 100px;
     background-color: $palettecolor2;
     color: white;
-    text-align: center;
     font-family: 'gilroy';
     display: flex;
     flex-direction: row;
     align-items: center;
     font-family: 'Kanit', sans-serif;
     justify-content: center;
+    text-align: center;
     h1{
         width: fit-content;
         height: fit-content;
@@ -20,9 +20,8 @@ header{
     .logo{
         height: 75px;
         width: 75px;
+        min-width: 75px;
         border-radius: 50%;
-/*         margin-top: 20px;
-        margin-left: 20px; */
         background-color: whitesmoke;
         img{
             align-items: center;

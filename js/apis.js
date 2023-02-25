@@ -2,7 +2,7 @@
 
 //API DE ARGENTINA
 //https://apis.datos.gob.ar/georef/api/localidades?nombre=25
-let respuesta
+let respuesta;
 let opciones;
 let opcionesLista;
 let opcionesviejas;
@@ -20,18 +20,6 @@ async function apiLocalidades(busqueda,campo){
         })
 }
 
-/* function recomendacionesBusqueda(respuesta) { 
-    opcionesviejas = document.querySelector("datalist");
-    opcionesviejas != null ? opcionesviejas.remove() : console.log("nada que borrar");
-    opciones= document.createElement("datalist");
-    opciones.id = "listado";
-    opciones.className = "datalistOptions";
-    respuesta.localidad.forEach(element => {
-        console.log(`<option>${element.nombre}, Provincia de ${element.provincia.nombre} (${element.id})</option>`);
-        opciones.innerHTML =   `<option>${element.nombre}, Provincia de ${element.provincia.nombre} (${element.id})</option>`;
-        document.querySelector("#form1").appendChild(opciones);
-    }) */
-
 //Busca las coordenadas del lugar elegido
 async function apiInfoLocalidad(id,localizacion){
     await fetch("https://apis.datos.gob.ar/georef/api/localidades?id="+id+"&campos=nombre,id,provincia.nombre,centroide")
@@ -40,7 +28,7 @@ async function apiInfoLocalidad(id,localizacion){
         .then( ()=>{
             console.log(respuesta);
             if (respuesta.total != 1) {
-                alertaError("Localidades Desconocidas","Selecciones una de las localidades que se le sugieren en la lista de opciones" )
+                alertaError("Localidades Desconocidas","Selecciones una de las localidades que se le sugieren en la lista de opciones","La APP solo admite localidades de Argentina")
             } else {
                 localStorage.setItem(localizacion,JSON.stringify(respuesta.localidades))}
             }
@@ -54,15 +42,6 @@ async function apiInfoLocalidad(id,localizacion){
 
 //Calculadora de DISTANCIA usando la formaula de Haversine (Calcula la distancia lineal, la API de google es paga)
 //https://www.movable-type.co.uk/scripts/latlong.html
-
-//let origen = JSON.parse(localStorage.getItem("Origen")) 
-//let destino = JSON.parse(localStorage.getItem("Destino")) 
-
-//origen[0].centroide.lat
-//origen[0].centroide.lon
-//destino[0].centroide.lat
-//destino[0].centroide.lon
-
 function distanciaHaversine(lat1,lon1,lat2,lon2){
     const R = 6371e3; // metres
     const φ1 = lat1 * Math.PI/180; // φ, λ in radians
@@ -75,5 +54,5 @@ function distanciaHaversine(lat1,lon1,lat2,lon2){
             Math.sin(Δλ/2) * Math.sin(Δλ/2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
-    return (R * c / 1000).toFixed(2); // in Kilometros
+    return (R * c / 1000).toFixed(2); // En Kilometros
 }

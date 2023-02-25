@@ -67,12 +67,12 @@ class Vehiculo{
         if (list.includes(tipoVehiculo)) {
             this.consumovehiculo = this.consumoxvehiculo.find((el) => el.vehiculo == tipoVehiculo)["consumo"];
         } else {
-            alertaError("Vehiculo o Combustible incorrecto","Las motos no funcionan con ese tipo de combustible")
+            alertaError("Vehiculo o Combustible incorrecto","Las motos no funcionan con ese tipo de combustible",)
         }
     }
     precioStd(tipoCombustible){
         this.preciocombustible = this.precioxcombustible.find((el) => el.combustible == tipoCombustible)["precio"];
-    }
+    }   
     velocidadProm(tipoVehiculo){
         this.velocidadprom = this.velocidadpromxvehiculo.find((el) => el.vehiculo == tipoVehiculo)["velocidadprom"];
     }
@@ -289,7 +289,7 @@ function recomendacionesBusqueda(respuesta,campo) {
     //Añadir opciones nuevas post respuesta de API
     respuesta.localidades.forEach(element => {
         opciones = document.createElement("option")
-        console.log(`<option value="${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})">`);
+        //console.log(`<option value="${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})">`);
         opciones.setAttribute("value", `${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})`);
         document.querySelector("#mostrarResultados"+campo).appendChild(opciones);
     })
