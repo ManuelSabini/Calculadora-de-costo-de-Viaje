@@ -25,6 +25,20 @@ header{
         background-color: whitesmoke;
         img{
             align-items: center;
+            &:hover{
+                animation-duration: 0.75s;
+                animation-name: mover_icono;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
         }
+    }
+}
+@keyframes mover_icono {
+    from{
+        transform: translateY(-5px);
+    }
+    to{
+        transform: translateY(5px);
     }
 }

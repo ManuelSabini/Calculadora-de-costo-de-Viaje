@@ -60,23 +60,49 @@ header .logo {
 header .logo img {
   align-items: center;
 }
+header .logo img:hover {
+  animation-duration: 0.75s;
+  animation-name: mover_icono;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 
+@keyframes mover_icono {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
 footer {
   background-color: #3282B8;
   text-align: center;
   padding-top: 25px;
   margin-top: 10px;
   width: 100%;
+  color: white;
 }
 footer a {
   padding: 8px;
   color: white;
   text-decoration: none;
 }
-footer p {
+footer a i {
+  display: inline-block;
+  font-size: xx-large;
+  height: auto;
+  text-align: center;
+}
+footer a i:hover {
+  color: black;
+  transform: translateY(-5px);
+  transition: 0.75s;
+}
+footer a p {
   padding-top: 8px;
-  margin-bottom: 8px;
-  color: white;
+  padding-bottom: 8px;
+  margin: 0;
 }
 
 /*# sourceMappingURL=estilos.css.map */

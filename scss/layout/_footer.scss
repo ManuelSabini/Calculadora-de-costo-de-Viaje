@@ -4,15 +4,25 @@ footer{
     padding-top: 25px;
     margin-top: 10px;
     width: 100%;
+    color: $fontcolor1;
     a{
         padding: 8px;
         color: $fontcolor1;
         text-decoration: none;
+        i{
+            display: inline-block;
+            font-size: xx-large;
+            height: auto;
+            text-align: center;
+            &:hover{
+                color: black;
+                transform: translateY(-5px);
+                transition: 0.75s;
+            }
     }
     p{
-        padding-top: 8px;
-        margin-bottom: 8px;
-        color: $fontcolor1;
+        padding-top: 8px;   
+        padding-bottom: 8px;
+        margin: 0;
     }
-}
-
+}}
