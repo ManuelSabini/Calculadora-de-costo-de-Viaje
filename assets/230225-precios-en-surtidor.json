@@ -1,0 +1,362 @@
+[
+  {
+    "Provincia": "Buenos Aires",
+    "TipoCombustible": "Gasoil",
+    "Precio": "208,8489796"
+  },
+  {
+    "Provincia": "Buenos Aires",
+    "TipoCombustible": "GNC",
+    "Precio": "83,28585258"
+  },
+  {
+    "Provincia": "Buenos Aires",
+    "TipoCombustible": "Nafta",
+    "Precio": "187,796235"
+  },
+  {
+    "Provincia": "Ciudad Autónoma de Buenos Aires",
+    "TipoCombustible": "Gasoil",
+    "Precio": "183,4927632"
+  },
+  {
+    "Provincia": "Ciudad Autónoma de Buenos Aires",
+    "TipoCombustible": "GNC",
+    "Precio": "67,5997561"
+  },
+  {
+    "Provincia": "Ciudad Autónoma de Buenos Aires",
+    "TipoCombustible": "Nafta",
+    "Precio": "166,4779141"
+  },
+  {
+    "Provincia": "Catamarca",
+    "TipoCombustible": "Gasoil",
+    "Precio": "211,216129"
+  },
+  {
+    "Provincia": "Catamarca",
+    "TipoCombustible": "GNC",
+    "Precio": "91,9"
+  },
+  {
+    "Provincia": "Catamarca",
+    "TipoCombustible": "Nafta",
+    "Precio": "183,1709677"
+  },
+  {
+    "Provincia": "Chaco",
+    "TipoCombustible": "Gasoil",
+    "Precio": "226,9701299"
+  },
+  {
+    "Provincia": "Chaco",
+    "TipoCombustible": "Nafta",
+    "Precio": "196,8725"
+  },
+  {
+    "Provincia": "Chaco",
+    "TipoCombustible": "GNC",
+    "Precio": "99,1"
+  },
+  {
+    "Provincia": "Chubut",
+    "TipoCombustible": "Gasoil",
+    "Precio": "197,8181818"
+  },
+  {
+    "Provincia": "Chubut",
+    "TipoCombustible": "Nafta",
+    "Precio": "143,2784615"
+  },
+  {
+    "Provincia": "Chubut",
+    "TipoCombustible": "GNC",
+    "Precio": "99,1"
+  },
+  {
+    "Provincia": "Cordoba",
+    "TipoCombustible": "Gasoil",
+    "Precio": "219,365098"
+  },
+  {
+    "Provincia": "Cordoba",
+    "TipoCombustible": "GNC",
+    "Precio": "106,6928251"
+  },
+  {
+    "Provincia": "Cordoba",
+    "TipoCombustible": "Nafta",
+    "Precio": "192,6858315"
+  },
+  {
+    "Provincia": "Corrientes",
+    "TipoCombustible": "Gasoil",
+    "Precio": "225,6346591"
+  },
+  {
+    "Provincia": "Corrientes",
+    "TipoCombustible": "Nafta",
+    "Precio": "196,2555556"
+  },
+  {
+    "Provincia": "Corrientes",
+    "TipoCombustible": "GNC",
+    "Precio": "99,1"
+  },
+  {
+    "Provincia": "Entre Rios",
+    "TipoCombustible": "Gasoil",
+    "Precio": "228,1385714"
+  },
+  {
+    "Provincia": "Entre Rios",
+    "TipoCombustible": "GNC",
+    "Precio": "104,6889815"
+  },
+  {
+    "Provincia": "Entre Rios",
+    "TipoCombustible": "Nafta",
+    "Precio": "194,1644886"
+  },
+  {
+    "Provincia": "Formosa",
+    "TipoCombustible": "Gasoil",
+    "Precio": "224,8076923"
+  },
+  {
+    "Provincia": "Formosa",
+    "TipoCombustible": "Nafta",
+    "Precio": "197,3230769"
+  },
+  {
+    "Provincia": "Formosa",
+    "TipoCombustible": "GNC",
+    "Precio": "99,1"
+  },
+  {
+    "Provincia": "Jujuy",
+    "TipoCombustible": "Gasoil",
+    "Precio": "212,3945205"
+  },
+  {
+    "Provincia": "Jujuy",
+    "TipoCombustible": "GNC",
+    "Precio": "104,8285714"
+  },
+  {
+    "Provincia": "Jujuy",
+    "TipoCombustible": "Nafta",
+    "Precio": "186,3028169"
+  },
+  {
+    "Provincia": "La Pampa",
+    "TipoCombustible": "Gasoil",
+    "Precio": "207,0587671"
+  },
+  {
+    "Provincia": "La Pampa",
+    "TipoCombustible": "GNC",
+    "Precio": "98,49916667"
+  },
+  {
+    "Provincia": "La Pampa",
+    "TipoCombustible": "Nafta",
+    "Precio": "156,4368493"
+  },
+  {
+    "Provincia": "La Rioja",
+    "TipoCombustible": "Gasoil",
+    "Precio": "211,2045455"
+  },
+  {
+    "Provincia": "La Rioja",
+    "TipoCombustible": "GNC",
+    "Precio": 110
+  },
+  {
+    "Provincia": "La Rioja",
+    "TipoCombustible": "Nafta",
+    "Precio": "182,5136364"
+  },
+  {
+    "Provincia": "Mendoza",
+    "TipoCombustible": "Gasoil",
+    "Precio": "201,3326207"
+  },
+  {
+    "Provincia": "Mendoza",
+    "TipoCombustible": "GNC",
+    "Precio": "96,92491803"
+  },
+  {
+    "Provincia": "Mendoza",
+    "TipoCombustible": "Nafta",
+    "Precio": "178,5341297"
+  },
+  {
+    "Provincia": "Misiones",
+    "TipoCombustible": "Gasoil",
+    "Precio": "236,8063158"
+  },
+  {
+    "Provincia": "Misiones",
+    "TipoCombustible": "Nafta",
+    "Precio": "202,5957447"
+  },
+  {
+    "Provincia": "Misiones",
+    "TipoCombustible": "GNC",
+    "Precio": "99,1"
+  },
+  {
+    "Provincia": "Neuquen",
+    "TipoCombustible": "Gasoil",
+    "Precio": "195,231746"
+  },
+  {
+    "Provincia": "Neuquen",
+    "TipoCombustible": "GNC",
+    "Precio": "102,45"
+  },
+  {
+    "Provincia": "Neuquen",
+    "TipoCombustible": "Nafta",
+    "Precio": "148,5709677"
+  },
+  {
+    "Provincia": "Rio Negro",
+    "TipoCombustible": "Gasoil",
+    "Precio": "197,08"
+  },
+  {
+    "Provincia": "Rio Negro",
+    "TipoCombustible": "GNC",
+    "Precio": "95,67142857"
+  },
+  {
+    "Provincia": "Rio Negro",
+    "TipoCombustible": "Nafta",
+    "Precio": "149,7956522"
+  },
+  {
+    "Provincia": "Salta",
+    "TipoCombustible": "Gasoil",
+    "Precio": "210,0878788"
+  },
+  {
+    "Provincia": "Salta",
+    "TipoCombustible": "GNC",
+    "Precio": "104,4605263"
+  },
+  {
+    "Provincia": "Salta",
+    "TipoCombustible": "Nafta",
+    "Precio": "185,780303"
+  },
+  {
+    "Provincia": "San Juan",
+    "TipoCombustible": "Gasoil",
+    "Precio": "206,9833333"
+  },
+  {
+    "Provincia": "San Juan",
+    "TipoCombustible": "GNC",
+    "Precio": "105,65625"
+  },
+  {
+    "Provincia": "San Juan",
+    "TipoCombustible": "Nafta",
+    "Precio": "186,4851852"
+  },
+  {
+    "Provincia": "San Luis",
+    "TipoCombustible": "Gasoil",
+    "Precio": "214,0886792"
+  },
+  {
+    "Provincia": "San Luis",
+    "TipoCombustible": "GNC",
+    "Precio": "114,3980769"
+  },
+  {
+    "Provincia": "San Luis",
+    "TipoCombustible": "Nafta",
+    "Precio": "187,809434"
+  },
+  {
+    "Provincia": "Santa Cruz",
+    "TipoCombustible": "Gasoil",
+    "Precio": "193,0625"
+  },
+  {
+    "Provincia": "Santa Cruz",
+    "TipoCombustible": "Nafta",
+    "Precio": "139,8261765"
+  },
+  {
+    "Provincia": "Santa Cruz",
+    "TipoCombustible": "GNC",
+    "Precio": "99,1"
+  },
+  {
+    "Provincia": "Santa Fe",
+    "TipoCombustible": "Gasoil",
+    "Precio": "220,0540448"
+  },
+  {
+    "Provincia": "Santa Fe",
+    "TipoCombustible": "GNC",
+    "Precio": "92,69632653"
+  },
+  {
+    "Provincia": "Santa Fe",
+    "TipoCombustible": "Nafta",
+    "Precio": "192,3543832"
+  },
+  {
+    "Provincia": "Santiago del Estero",
+    "TipoCombustible": "Gasoil",
+    "Precio": "219,751039"
+  },
+  {
+    "Provincia": "Santiago del Estero",
+    "TipoCombustible": "GNC",
+    "Precio": "102,5504918"
+  },
+  {
+    "Provincia": "Santiago del Estero",
+    "TipoCombustible": "Nafta",
+    "Precio": "188,3753247"
+  },
+  {
+    "Provincia": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+    "TipoCombustible": "Gasoil",
+    "Precio": "172,6384615"
+  },
+  {
+    "Provincia": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+    "TipoCombustible": "Nafta",
+    "Precio": "135,7"
+  },
+  {
+    "Provincia": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+    "TipoCombustible": "GNC",
+    "Precio": "99,1"
+  },
+  {
+    "Provincia": "Tucumán",
+    "TipoCombustible": "Gasoil",
+    "Precio": "210,167033"
+  },
+  {
+    "Provincia": "Tucumán",
+    "TipoCombustible": "GNC",
+    "Precio": "102,3527451"
+  },
+  {
+    "Provincia": "Tucumán",
+    "TipoCombustible": "Nafta",
+    "Precio": "185,1413978"
+  }
+]

@@ -56,3 +56,30 @@ function distanciaHaversine(lat1,lon1,lat2,lon2){
 
     return (R * c / 1000).toFixed(2); // En Kilometros
 }
+
+//Seleccionar precio de Combutible
+
+//Busca el promedio en funcion de un Dataset que se descarga desde Datos Argentina, como no se pueden consultar mediante API y el archivo origianl es muy pesado se armo un JSON manual con los promedios de los precios segun el tipo de combustible.
+//Se selecciona el precio del combustible segun la provincia en la que inicia el trayecto.
+let valorCombustible
+
+async function busquedaPrecioCombustible(provincia,tipoCombustible){
+    await fetch("./assets/230225-precios-en-surtidor.json")
+        .then( response => response.json())
+        .then( data => respuesta = data)
+        .then( ()=>{
+            console.log(respuesta)
+            respuesta.forEach((element) => {
+                if ((element.Provincia == provincia)&&(element.TipoCombustible == tipoCombustible)){
+                    console.log(element);
+                    console.log(element.Precio);
+                    valorCombustible = parseInt(element.Precio)
+                }
+                }
+            );
+        })
+        .catch( () =>{
+            respuesta = "No se encontro el JSON";
+            console.log(respuesta);
+        })
+}

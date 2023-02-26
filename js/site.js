@@ -44,11 +44,12 @@ class Vehiculo{
             {vehiculo: "AutoGNC", consumo: 7.5}]; //Auto a GNC
         
         //Costo del litro/m3 de combustible ($/L (o M3))
-        this.precioxcombustible = [
-            {combustible: "Nafta", precio: (150.9+184.4)/2}, //Promedio precio Naftas
-            {combustible: "Gasoil", precio: (169.9+218.9)/2}, //Promedio Precio Gasoil
-            {combustible: "GNC", precio: 60}]; //Promedio precio GNC
-        
+
+            /*         this.precioxcombustible = [
+                        {combustible: "Nafta", precio: (150.9+184.4)/2}, //Promedio precio Naftas
+                        {combustible: "Gasoil", precio: (169.9+218.9)/2}, //Promedio Precio Gasoil
+                        {combustible: "GNC", precio: 60}]; //Promedio precio GNC */
+            
         //Velocidad promedio segun vehiculo (Km/h)
         this.velocidadpromxvehiculo = [
             {vehiculo: "Moto", velocidadprom: 90}, //Velocidad promedio Moto
@@ -70,8 +71,10 @@ class Vehiculo{
             alertaError("Vehiculo o Combustible incorrecto","Las motos no funcionan con ese tipo de combustible",)
         }
     }
-    precioStd(tipoCombustible){
-        this.preciocombustible = this.precioxcombustible.find((el) => el.combustible == tipoCombustible)["precio"];
+    async precioStd(tipoCombustible){
+        await busquedaPrecioCombustible(JSON.parse(localStorage.getItem("origen_pos"))[0].provincia.nombre, tipoCombustible );
+        this.preciocombustible = valorCombustible;
+/*         this.preciocombustible = this.precioxcombustible.find((el) => el.combustible == tipoCombustible)["precio"]; */
     }   
     velocidadProm(tipoVehiculo){
         this.velocidadprom = this.velocidadpromxvehiculo.find((el) => el.vehiculo == tipoVehiculo)["velocidadprom"];
@@ -96,111 +99,6 @@ class Calculos{
         console.log("Tiempo estimado: " + (distancia/velocidadProm).toFixed(2));
         this.totalTiempoDelViaje = (distancia / velocidadProm).toFixed(2);
     }
-}
-
-//MODIFICACIONES DEL HTML
-//Caja de consulta Vehiculo
-function InsertarCajaVehiculo() {
-    //Borra los botones y bloque los inputs de la caja anterior 
-    let botones = document.querySelector(".botones");
-    botones.remove();
-    let inputDesde = document.querySelector("#desde");
-    inputDesde.setAttribute("disabled","")
-    let inputHasta = document.querySelector("#hasta");
-    inputHasta.setAttribute("disabled","")
-    //Inserta nueva caja
-    let caja = document.createElement("div");
-        caja.className = "container";
-        caja.id = "cajaVehiculo";
-    caja.innerHTML =   `<h2>Seleccione el vehiculo</h2>
-                        <form id="form2">
-                            <input type="radio" class="form-check-label" id="moto" name="tipoVehiculo" value="Moto">
-                            <label class="form-check-label" for="moto">Moto</label><br>
-                            <input type="radio" class="form-check-label" id="auto" name="tipoVehiculo" value="Auto">
-                            <label for="auto" class="form-check-label">Auto</label><br>
-                            <div class="botones"> 
-                                <button type="submit" class="btn btn-primary" type="button">Siguiente</button>
-                            </div>
-                        </form>`
-    document.querySelector("main").appendChild(caja);
-}
-
-//Inserta caja de consulta tipo de Vehiculo que utiliza
-function InsertarCajaCombustible() { 
-    //Borra el boton de Siguiente de la caja anterior y desabilita los radios de la caja anterior para evitar cambios posteriores
-    let botones = document.querySelector(".botones");
-    botones.remove();
-    let inputMoto = document.querySelector("#moto");
-    inputMoto.setAttribute("disabled","")
-    let inputHasta = document.querySelector("#auto");
-    inputHasta.setAttribute("disabled","")
-    let caja = document.createElement("div");
-    //Crea e inserta caja de vehiculo
-    caja.className = "container";
-    caja.id = "cajaVehiculo";
-    caja.innerHTML =   `<h2>Seleccione el tipo de combustible</h2>
-                        <form id="form3">
-                            <input type="radio" class="form-check-label" id="nafta" name="tipoCombustible" value="Nafta">
-                            <label for="nafta" class="form-check-label">Nafta</label><br>
-                            <input type="radio" class="form-check-label" id="gasoil" name="tipoCombustible" value="Gasoil">
-                            <label for="gasoil" class="form-check-label">Gasoil</label><br>
-                            <input type="radio" class="form-check-label" id="gnc" name="tipoCombustible" value="GNC">
-                            <label for="gnc" class="form-check-label">GNC</label><br>
-                            <div class="botones">
-                                <button type="submit" class="btn btn-primary" type="button">Siguiente</button>
-                            </div>
-                        </form>`
-    document.querySelector("main").appendChild(caja);
-}
-
-
-//Caja de respuestas
-function InsertarCajaRespuesta() {
-    //Elimina el boton de siguiente de la caja anterior, bloquea las respuestas del usuario en la caja anterior
-    let botones = document.querySelector(".botones");
-    botones.remove();
-    let inputNafta = document.querySelector("#nafta");
-    inputNafta.setAttribute("disabled","")
-    let inputGasoil = document.querySelector("#gasoil");
-    inputGasoil.setAttribute("disabled","")
-    let inputAuto = document.querySelector("#gnc");
-    inputAuto.setAttribute("disabled","")
-    //Calcula los resultados
-    vehiculo.precioStd(vehiculo.tipoMotor);
-    vehiculo.velocidadProm(vehiculo.tipoTransporte);
-    vehiculo.consumoStd(vehiculo.tipoTransporte+vehiculo.tipoMotor);
-    estimacion.combustibleNecesario(viaje.distancia, vehiculo.consumovehiculo);
-    estimacion.calculadoraGasto(estimacion.totalCombustible, vehiculo.preciocombustible);
-    estimacion.tiempo(vehiculo.velocidadprom, viaje.distancia);
-    //Inserta respuestas
-    let caja = document.createElement("div");
-    caja.className = "container";
-    caja.id = "cajaRespuesta";
-    caja.innerHTML =   `<h2>Resultados</h2>
-                        <p>Su viaje entre:</p> 
-                        <p>${viaje.origen.slice(0,-14)}</p> 
-                        <p>${viaje.destino.slice(0,-14)}</p>
-                        <table class="table table-hover table-bordered table-sm">
-                            <tbody>
-                                <tr>
-                                    <th>Distancia</th>
-                                    <th>Consumo de combustible</th>
-                                    <th>Costo</th>
-                                    <th>Precio del Litro de combustible (o M3)</th>
-                                    <th>Tiempo estimado</th>
-                                </tr>
-                                <tr>
-                                    <td>${viaje.distancia} Km.</td>
-                                    <td>${estimacion.totalCombustible} Litros (o M3)</td>
-                                    <td>${estimacion.totalGasto} Pesos Arg.</td>
-                                    <td>${vehiculo.preciocombustible} $/L.</td>
-                                    <td>${estimacion.totalTiempoDelViaje} Horas</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>*Informacion calculada en base a distancia lineal</p>
-                        <button type="button" class="btn btn-danger" id="limpiar" type="reset">Limpiar</button>`
-    document.querySelector("main").appendChild(caja);
 }
 
 //Listeners y Funciones de cada Caja
@@ -247,7 +145,6 @@ function listenerCajaCombustible(){
         localStorage.setItem("tipoCombustible", JSON.stringify(combustibleJSON));
         //Mostrar respuestas
         InsertarCajaRespuesta();
-        listenerCajaRespuesta();
     })
 }
 
@@ -255,16 +152,6 @@ function listenerCajaRespuesta(){
     limpiar = document.querySelector("#limpiar");
     limpiar.addEventListener("click", location.reload.bind(location));
 }
-
-
-//Creacion de Objetos
-let viaje = new Viaje;
-let vehiculo = new Vehiculo;
-let estimacion = new Calculos;
-
-let siguiente;
-
-listenerCajaTravesia();
 
 //Lo que hace esta funcion es llamar a la funcion que consulta a la API de localidades del pais. lo hace solo cuando el usuario completo al menos 3 letras
 function listenerRecomendacion(campo){
@@ -275,22 +162,26 @@ function listenerRecomendacion(campo){
     })
 }
 
+//Calculo de Resultados
+async function calculoDeResultados() {
+    await vehiculo.precioStd(vehiculo.tipoMotor);
+    vehiculo.velocidadProm(vehiculo.tipoTransporte);
+    vehiculo.consumoStd(vehiculo.tipoTransporte+vehiculo.tipoMotor);
+    estimacion.combustibleNecesario(viaje.distancia, vehiculo.consumovehiculo);
+    estimacion.calculadoraGasto(estimacion.totalCombustible, vehiculo.preciocombustible);
+    estimacion.tiempo(vehiculo.velocidadprom, viaje.distancia);
+}
+
+//Creacion de Objetos
+let viaje = new Viaje;
+let vehiculo = new Vehiculo;
+let estimacion = new Calculos;
+
+let siguiente;
+
+listenerCajaTravesia();
+
+
 //Añade el listado de recomendaciones (option en el HTML)
 listenerRecomendacion("desde");
 listenerRecomendacion("hasta");
-
-let cant
-function recomendacionesBusqueda(respuesta,campo) { 
-    //Remover Opciones viejas
-    cant = document.querySelectorAll("option").length
-    for (let index = 0; index < cant; index++) {
-        document.querySelector("option").remove();
-    }
-    //Añadir opciones nuevas post respuesta de API
-    respuesta.localidades.forEach(element => {
-        opciones = document.createElement("option")
-        //console.log(`<option value="${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})">`);
-        opciones.setAttribute("value", `${element.nombre}, Provincia de ${element.provincia.nombre} (#${element.id})`);
-        document.querySelector("#mostrarResultados"+campo).appendChild(opciones);
-    })
-}
