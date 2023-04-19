@@ -6,6 +6,7 @@ body{
 main{
     padding-left: 5%;
     padding-right: 10%;
+    min-height: calc(100vh - 100px - 130px);
 }
 .container{
     margin-top: 10px;
